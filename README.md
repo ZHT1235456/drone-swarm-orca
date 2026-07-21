@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-cyan.svg)](LICENSE)
 
-基于 **TypeScript + Three.js + ORCA** 的异构无人机集群实时仿真软件，支持 200 架规模编队飞行、电影感夜景渲染与工业风指挥控制台，可通过 **Tauri 2** 打包为轻量化 Windows 桌面应用。
+基于 **TypeScript + Three.js + ORCA** 的异构无人机集群实时仿真软件，支持 200 架规模编队飞行、电影感夜景渲染与工业风指挥控制台，可通过 **Tauri 2** 打包为轻量化 Windows 桌面应用（含**免安装便携版**，双击即可运行）。
 
 ![主界面](docs/screenshots/01-main-ui.png)
 
@@ -13,7 +13,7 @@
 - **七种队形**：地面阵列、球面警戒、双螺旋、分层环形、楔形突击、星爆散开、灯光文字 (UAV)
 - **电影感渲染**：Bloom 辉光、夜景氛围、自动导演运镜（环绕/跟拍/掠过/俯瞰）
 - **工业控制台**：侧栏布局、实时遥测、任务规划、告警流、单机故障演练
-- **桌面应用**：Tauri 2 + WebView2，NSIS 安装包
+- **桌面应用**：Tauri 2 + WebView2；支持 NSIS 安装包与免安装便携版（`SWARM-COMMAND.exe`）
 
 ## 技术栈
 
@@ -47,7 +47,21 @@ npm run dev
 npm run tauri:dev
 ```
 
-### 打包 Windows 安装包
+### 免安装便携版（推荐，双击即用）
+
+```bash
+npm run tauri:portable
+```
+
+生成单个可执行文件：
+
+```
+release/portable/SWARM-COMMAND.exe
+```
+
+双击即可运行，无需安装。可将该文件复制到 U 盘或其他电脑使用。需要 Windows 10/11 已内置 WebView2 运行时。
+
+### 打包 Windows 安装包（NSIS）
 
 ```bash
 npm run tauri:build
@@ -64,7 +78,8 @@ src/
   ui/         # 侧栏控制台 HUD
 src-tauri/    # Tauri 2 桌面壳
 docs/         # 开发日志（LaTeX + PDF）与截图
-scripts/      # 截图等辅助脚本
+scripts/      # 截图、便携版打包脚本
+release/      # 本地生成的便携版输出（默认不入库）
 ```
 
 ## 操作说明

@@ -5,6 +5,9 @@ dist/
 # Tauri / Rust
 src-tauri/target/
 
+# 便携版输出目录（exe 可提交到 Release，默认忽略）
+release/
+
 # Vite
 .vite/
 

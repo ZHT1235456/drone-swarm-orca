@@ -36,7 +36,7 @@
 \maketitle
 
 \begin{abstract}
-本文记录 \textbf{SWARM COMMAND} 异构无人机集群灯光秀模拟软件的开发过程。系统基于 TypeScript 与 Three.js 构建三维可视化与工业风控制台，采用三维 ORCA（Optimal Reciprocal Collision Avoidance）算法实现 200 架规模异构机群的实时避障与编队飞行，并通过 Tauri 2 打包为轻量化 Windows 桌面应用。全文涵盖需求分析、架构设计、核心模块实现、界面演进、性能优化与桌面发布等环节。
+本文记录 \textbf{SWARM COMMAND} 异构无人机集群灯光秀模拟软件的开发过程。系统基于 TypeScript 与 Three.js 构建三维可视化与工业风控制台，采用三维 ORCA（Optimal Reciprocal Collision Avoidance）算法实现 200 架规模异构机群的实时避障与编队飞行，并通过 Tauri 2 打包为轻量化 Windows 桌面应用，同时提供\textbf{免安装便携版}（双击即可运行）。全文涵盖需求分析、架构设计、核心模块实现、界面演进、性能优化与桌面发布等环节。
 \end{abstract}
 
 \tableofcontents
@@ -55,7 +55,7 @@
   \item 七种队形切换：地面阵列、球面警戒、双螺旋、分层环形、楔形突击、星爆散开、灯光文字；
   \item 电影感渲染：Bloom 辉光、夜景氛围、自动导演运镜；
   \item 工业风控制台：遥测面板、任务规划、告警流、故障演练；
-  \item 通过 Tauri 2 打包为轻量化 Windows 可执行程序。
+  \item 通过 Tauri 2 打包为轻量化 Windows 应用，支持 NSIS 安装包与免安装便携版。
 \end{itemize}
 
 \section{技术架构}
@@ -154,13 +154,26 @@ ORCA 为每个近邻构造互惠速度障碍半平面，通过三维线性规划
   \item 前端：Vite 生产构建 minify，\texttt{base: './'} 适配本地协议。
 \end{itemize}
 
-构建命令：
+\subsection{两种发布形态}
+本项目提供两种桌面分发方式：
+
+\paragraph{安装包（NSIS）}
+适合正式部署：
 \begin{lstlisting}[language=bash]
-npm install
 npm run tauri:build
 \end{lstlisting}
+产物为 \texttt{SWARM COMMAND\_1.0.0\_x64-setup.exe}。
 
-产物为 \texttt{SWARM COMMAND\_1.0.0\_x64-setup.exe} 安装程序。
+\paragraph{免安装便携版（推荐日常演示）}
+生成单个可执行文件，双击即可运行，无需安装：
+\begin{lstlisting}[language=bash]
+npm run tauri:portable
+\end{lstlisting}
+产物路径：
+\begin{lstlisting}[language=bash]
+release/portable/SWARM-COMMAND.exe
+\end{lstlisting}
+便携版体积约数兆字节量级，依赖系统已安装的 WebView2 运行时（Windows 10/11 通常已内置）。可将该文件复制到 U 盘或其他电脑直接使用。
 
 \section{技术栈汇总}
 
