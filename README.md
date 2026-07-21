@@ -4,6 +4,8 @@
 
 基于 **TypeScript + Three.js + ORCA** 的异构无人机集群实时仿真软件，支持 200 架规模编队飞行、电影感夜景渲染与工业风指挥控制台，可通过 **Tauri 2** 打包为轻量化 Windows 桌面应用（含**免安装便携版**，双击即可运行）。
 
+**下载便携版（Windows，双击即用）：** [SWARM-COMMAND.exe](https://github.com/ZHT1235456/drone-swarm-orca/releases/download/v1.0.0/SWARM-COMMAND.exe) · [全部 Release](https://github.com/ZHT1235456/drone-swarm-orca/releases)
+
 ![主界面](docs/screenshots/01-main-ui.png)
 
 ## 功能特性
