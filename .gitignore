@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+dist/
+
+# Tauri / Rust
+src-tauri/target/
+
+# Vite
+.vite/
+
+# LaTeX auxiliary
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc
+docs/*.fls
+docs/*.fdb_latexmk
+docs/*.synctex.gz
+
+# Dev / temp
+*.log
+bench.cjs
+bench.ts
+icon-source.png
+icon-square.png
+layout_sidebar.png
+closeup*.png
+shot*.png
+model_*.png
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Test scripts at root (use scripts/)
+/test_*.py
+
+# Cursor
+.cursor/

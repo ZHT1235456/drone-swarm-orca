@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SWARM COMMAND — 异构无人机集群指挥系统</title>
+  <link rel="stylesheet" href="/src/ui/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="topbar-slot"></header>
+    <div id="workspace">
+      <aside id="sidebar-left" class="sidebar"></aside>
+      <main id="viewport">
+        <canvas id="scene"></canvas>
+        <div id="viewport-overlay">
+          <div id="camera-info">
+            <span class="rec"></span>
+            <span class="shot">—</span>
+            <span>LIVE FEED · CAM-01</span>
+          </div>
+        </div>
+      </main>
+      <aside id="sidebar-right" class="sidebar"></aside>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
